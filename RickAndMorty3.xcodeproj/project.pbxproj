@@ -20,6 +20,7 @@
 		3118E8B42810880200082EE8 /* RMListOfCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118E8B22810880200082EE8 /* RMListOfCharacters.swift */; };
 		3118E8B628108D3100082EE8 /* RMServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118E8B528108D3100082EE8 /* RMServices.swift */; };
 		3118E8B8281095C100082EE8 /* RMListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118E8B7281095C100082EE8 /* RMListViewModel.swift */; };
+		31C7587928161A320042A278 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C7587828161A320042A278 /* UIViewController+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		3118E8B22810880200082EE8 /* RMListOfCharacters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMListOfCharacters.swift; sourceTree = "<group>"; };
 		3118E8B528108D3100082EE8 /* RMServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMServices.swift; sourceTree = "<group>"; };
 		3118E8B7281095C100082EE8 /* RMListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMListViewModel.swift; sourceTree = "<group>"; };
+		31C7587828161A320042A278 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		3118E88C28106D5A00082EE8 /* RickAndMorty3 */ = {
 			isa = PBXGroup;
 			children = (
+				31C7587728161A130042A278 /* Extensions */,
 				3118E8A82810855200082EE8 /* Models */,
 				3118E8A72810854A00082EE8 /* ViewModels */,
 				3118E8A62810854500082EE8 /* Views */,
@@ -152,6 +155,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		31C7587728161A130042A278 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31C7587828161A320042A278 /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -224,6 +235,7 @@
 			files = (
 				3118E8B32810880200082EE8 /* RMCharacter.swift in Sources */,
 				3118E8B42810880200082EE8 /* RMListOfCharacters.swift in Sources */,
+				31C7587928161A320042A278 /* UIViewController+Ext.swift in Sources */,
 				3118E89228106D5A00082EE8 /* CharactersVC.swift in Sources */,
 				3118E8B0281085A300082EE8 /* RMTabController.swift in Sources */,
 				3118E8B628108D3100082EE8 /* RMServices.swift in Sources */,

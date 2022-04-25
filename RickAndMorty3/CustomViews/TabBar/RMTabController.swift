@@ -19,7 +19,8 @@ class RMTabController: UITabBarController {
 
 private extension RMTabController {
     func charactersNC() -> UINavigationController {
-        let character = CharactersVC()
+        let viewModel = RMListViewModel()
+        let character = CharactersVC(rmViewModel: viewModel)
         character.title = "Characters"
         character.tabBarItem = UITabBarItem(title: "Characters", image: Constants.RMSystemSymbols.characters, tag: 0)
         return UINavigationController(rootViewController: character)
