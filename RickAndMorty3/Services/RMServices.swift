@@ -18,8 +18,8 @@ class RMServices {
         decoder.dateDecodingStrategy = .iso8601
     }
     
-    func getAllCharacters() async throws -> [Character] {
-        let page = Int.random(in: 1...20)
+    func getAllCharacters(page: Int) async throws -> [Character] {
+        
         let url = Constants.RMUrl.apiUrl + "/character?page=\(page)"
         guard let apiUrl = URL(string: url) else { throw RMErrors.unableToComplete }
         

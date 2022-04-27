@@ -34,10 +34,10 @@ class RMListViewModel {
     }
     var refreshRMViewModel : ((RMViemodelState) -> Void)?
     
-    func getCharacters() async {
+    func getCharacters(page: Int) async {
         do {
             state = .loading
-            let characters = try await RMServices.shared.getAllCharacters()
+            let characters = try await RMServices.shared.getAllCharacters(page: page)
             self.characters = characters.map(RMModel.init)
             state = .loaded(model: self.characters)
         } catch {
@@ -66,5 +66,14 @@ struct RMModel {
     }
     var image : String {
         rmCharacter.image
+    }
+}
+extension RMModel: Hashable {
+    static func == (lhs: RMModel, rhs: RMModel) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

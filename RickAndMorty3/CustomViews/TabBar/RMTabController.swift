@@ -11,7 +11,7 @@ class RMTabController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UITabBar.appearance().tintColor = .systemRed
+        UITabBar.appearance().tintColor = .black
         viewControllers = [charactersNC()]
     }
 

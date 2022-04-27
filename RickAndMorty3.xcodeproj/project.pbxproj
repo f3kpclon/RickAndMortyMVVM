@@ -20,6 +20,11 @@
 		3118E8B42810880200082EE8 /* RMListOfCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118E8B22810880200082EE8 /* RMListOfCharacters.swift */; };
 		3118E8B628108D3100082EE8 /* RMServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118E8B528108D3100082EE8 /* RMServices.swift */; };
 		3118E8B8281095C100082EE8 /* RMListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118E8B7281095C100082EE8 /* RMListViewModel.swift */; };
+		313ACC722819C8700059F244 /* RMCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313ACC712819C8700059F244 /* RMCellViewModel.swift */; };
+		313ACC742819CAC70059F244 /* RMCharCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313ACC732819CAC70059F244 /* RMCharCellModel.swift */; };
+		316C6221281840D60046294B /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C6220281840D60046294B /* UIView+Ext.swift */; };
+		316C62242818421C0046294B /* UIStack+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C62232818421C0046294B /* UIStack+Ext.swift */; };
+		316C6227281848870046294B /* RMCharCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C6226281848870046294B /* RMCharCell.swift */; };
 		31C7587928161A320042A278 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C7587828161A320042A278 /* UIViewController+Ext.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +44,11 @@
 		3118E8B22810880200082EE8 /* RMListOfCharacters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMListOfCharacters.swift; sourceTree = "<group>"; };
 		3118E8B528108D3100082EE8 /* RMServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMServices.swift; sourceTree = "<group>"; };
 		3118E8B7281095C100082EE8 /* RMListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMListViewModel.swift; sourceTree = "<group>"; };
+		313ACC712819C8700059F244 /* RMCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCellViewModel.swift; sourceTree = "<group>"; };
+		313ACC732819CAC70059F244 /* RMCharCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharCellModel.swift; sourceTree = "<group>"; };
+		316C6220281840D60046294B /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		316C62232818421C0046294B /* UIStack+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStack+Ext.swift"; sourceTree = "<group>"; };
+		316C6226281848870046294B /* RMCharCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharCell.swift; sourceTree = "<group>"; };
 		31C7587828161A320042A278 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +119,7 @@
 		3118E8A32810852400082EE8 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				316C62252818484E0046294B /* Cells */,
 				3118E8A42810852D00082EE8 /* TabBar */,
 			);
 			path = CustomViews;
@@ -142,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				3118E8B7281095C100082EE8 /* RMListViewModel.swift */,
+				313ACC712819C8700059F244 /* RMCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -151,14 +163,25 @@
 			children = (
 				3118E8B12810880200082EE8 /* RMCharacter.swift */,
 				3118E8B22810880200082EE8 /* RMListOfCharacters.swift */,
+				313ACC732819CAC70059F244 /* RMCharCellModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		316C62252818484E0046294B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				316C6226281848870046294B /* RMCharCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		31C7587728161A130042A278 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				31C7587828161A320042A278 /* UIViewController+Ext.swift */,
+				316C6220281840D60046294B /* UIView+Ext.swift */,
+				316C62232818421C0046294B /* UIStack+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -233,6 +256,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				313ACC742819CAC70059F244 /* RMCharCellModel.swift in Sources */,
+				316C62242818421C0046294B /* UIStack+Ext.swift in Sources */,
 				3118E8B32810880200082EE8 /* RMCharacter.swift in Sources */,
 				3118E8B42810880200082EE8 /* RMListOfCharacters.swift in Sources */,
 				31C7587928161A320042A278 /* UIViewController+Ext.swift in Sources */,
@@ -242,6 +267,9 @@
 				3118E88E28106D5A00082EE8 /* AppDelegate.swift in Sources */,
 				3118E8AD2810858100082EE8 /* RMErrors.swift in Sources */,
 				3118E89028106D5A00082EE8 /* SceneDelegate.swift in Sources */,
+				316C6227281848870046294B /* RMCharCell.swift in Sources */,
+				313ACC722819C8700059F244 /* RMCellViewModel.swift in Sources */,
+				316C6221281840D60046294B /* UIView+Ext.swift in Sources */,
 				3118E8B8281095C100082EE8 /* RMListViewModel.swift in Sources */,
 				3118E8AC2810858100082EE8 /* Constants.swift in Sources */,
 				3118E8AE2810858100082EE8 /* UIHelper.swift in Sources */,
