@@ -59,7 +59,7 @@ struct RMModel {
         rmCharacter.status
     }
     var species : String {
-        rmCharacter.status
+        rmCharacter.species
     }
     var gender : String {
         rmCharacter.gender

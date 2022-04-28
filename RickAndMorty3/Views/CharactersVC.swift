@@ -147,6 +147,21 @@ extension CharactersVC: UICollectionViewDelegate {
         }
         
     }
+    func collectionView(_ collectionView: UICollectionView,
+                        shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        guard let dataSource = dataSource else { return false }
+        
+        // Allows for closing an already open cell
+        if collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false {
+            collectionView.deselectItem(at: indexPath, animated: true)
+        } else {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        }
+        
+        dataSource.refresh()
+        
+        return false // The selecting or deselecting is already performed above
+    }
 }
 
 extension UICollectionViewDiffableDataSource {
