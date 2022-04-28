@@ -83,12 +83,18 @@ private extension CharactersVC {
 
 private extension CharactersVC {
     func configCollection()  {
-        collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: UIHelper.createLayout())
-        view.addSubview(collectionView)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: UIHelper.createLayout())
+        view.addSubViews(collectionView)
         view.sendSubviewToBack(collectionView)
         collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
         collectionView.register(RMCharCell.self, forCellWithReuseIdentifier: RMCharCell.reuseID)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
     }
     
     func configDataSource()  {

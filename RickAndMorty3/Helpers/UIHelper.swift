@@ -26,7 +26,7 @@ struct UIHelper {
         let padding :CGFloat = 12
 
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .estimated(50))
+                                              heightDimension: .estimated(300))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
       

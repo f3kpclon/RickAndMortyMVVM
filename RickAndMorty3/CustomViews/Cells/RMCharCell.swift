@@ -50,16 +50,14 @@ class RMCharCell: UICollectionViewCell {
     // Stacks
     private lazy var rootStack: UIStackView = {
         let rootStack = UIStackView(arrangedSubviews: [viewsStack, disclosureIndicator])
-        rootStack.alignment = .top
+        rootStack.alignment = .center
         rootStack.axis = .horizontal
         rootStack.distribution = .fillProportionally
         return rootStack
     }()
     private lazy var viewsStack: UIStackView = {
         let viewsStack = UIStackView(arrangedSubviews: [
-            //nameLabel,
             imageNameView,
-            //locationLabel,
             speciesLabel,
             genderLabel,
             statusLabel
@@ -69,6 +67,7 @@ class RMCharCell: UICollectionViewCell {
         
         return viewsStack
     }()
+    
     private lazy var imageNameView : UIView = {
        let view = UIView()
         view.addSubViews(avatarImg, nameLabel)
@@ -111,7 +110,6 @@ class RMCharCell: UICollectionViewCell {
                 self?.updateContent(char)
             case .loading:
                 self?.actitvityindicator.startAnimating()
-                print("CARGANDO...")
             case .loadedWithError(let error):
                 self?.actitvityindicator.stopAnimating()
                 print(error.rawValue)
@@ -149,21 +147,23 @@ private extension RMCharCell {
            
             
             avatarImg.topAnchor.constraint(equalTo: imageNameView.topAnchor),
-            avatarImg.leftAnchor.constraint(equalTo: imageNameView.leftAnchor),
-            avatarImg.widthAnchor.constraint(equalToConstant: 60),
+            avatarImg.leadingAnchor.constraint(equalTo: imageNameView.leadingAnchor),
+            avatarImg.bottomAnchor.constraint(equalTo: imageNameView.bottomAnchor),
+            avatarImg.widthAnchor.constraint(equalToConstant: 80),
             avatarImg.heightAnchor.constraint(equalTo: avatarImg.widthAnchor),
+            
 
             nameLabel.centerYAnchor.constraint(equalTo: avatarImg.centerYAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: avatarImg.trailingAnchor, constant: padding),
             nameLabel.trailingAnchor.constraint(equalTo: imageNameView.trailingAnchor, constant: -padding),
 
-            imageNameView.heightAnchor.constraint(equalTo: avatarImg.heightAnchor)
+            
         ])
         
         // We need constraints that define the height of the cell when closed and when open
         // to allow for animating between the two states.
         closedConstraint =
-            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding)
+            imageNameView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding)
         closedConstraint?.priority = .defaultLow // use low priority so stack stays pinned to top of cell
         
         openConstraint =
@@ -175,6 +175,15 @@ private extension RMCharCell {
     private func updateAppearance() {
         closedConstraint?.isActive = !isSelected
         openConstraint?.isActive = isSelected
+        if isSelected {
+            statusLabel.isHidden = false
+            genderLabel.isHidden = false
+            speciesLabel.isHidden = false
+        } else {
+            statusLabel.isHidden = true
+            genderLabel.isHidden = true
+            speciesLabel.isHidden = true
+        }
         
         UIView.animate(withDuration: 0.3) {
             let upsideDown = CGAffineTransform(rotationAngle: .pi * 0.999 )
