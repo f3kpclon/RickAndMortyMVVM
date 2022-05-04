@@ -25,10 +25,12 @@ class CharactersVC: UIViewController {
         super.init(nibName: nil, bundle: nil)
         addActivityindicator()
         getCharacters(page: page)
-        stateManager()
         configSearchController()
         configCollection()
         configDataSource()
+        rmViewModel.connectCallback { [weak self] state in
+            self?.stateManager(state: state)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -56,21 +58,20 @@ private extension CharactersVC {
             await rmViewModel?.getCharacters(page: page)
         }
     }
-    func stateManager()  {
-        rmViewModel?.refreshRMViewModel = { [weak self] stateIn in
-            switch stateIn {
+    func stateManager(state: RMViemodelState)  {
+        
+            switch state {
             case .loaded(let characters):
-                self?.actitvityindicator.stopAnimating()
-                self?.characters.append(contentsOf: characters)
-                self?.updateDataSource(on: self?.characters ?? [])
+                actitvityindicator.stopAnimating()
+                self.characters.append(contentsOf: characters)
+                updateDataSource(on: self.characters )
             case .loading:
-                self?.actitvityindicator.startAnimating()
+                actitvityindicator.startAnimating()
             case .loadedWithError(let error):
                 print(error.rawValue)
             }
             
         }
-    }
     
     func addActivityindicator()  {
         view.addSubViews(actitvityindicator)

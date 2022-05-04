@@ -45,6 +45,9 @@ class RMListViewModel {
             print(error)
         }
     }
+     func connectCallback(callback: @escaping (RMViemodelState) -> ()) {
+         self.refreshRMViewModel = callback
+    }
 }
 
 struct RMModel {

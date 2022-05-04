@@ -133,6 +133,9 @@ private extension RMCharCell {
         contentView.addSubViews(rootStack)
         setConstraints()
         updateAppearance()
+        for view in viewsStack.arrangedSubviews {
+            viewsStack.sendSubviewToBack(view)
+        }
     }
     func setConstraints()  {
         NSLayoutConstraint.activate([
